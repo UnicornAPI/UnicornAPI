@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>UnicornAPI</AssemblyName>
+    <RootNamespace>Unicorn</RootNamespace>
+    <Version>0.1.1</Version>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- SQLite: провайдер e_sqlite3; нативную e_sqlite3.dll (win-x64) кладём рядом с Unicorn.dll -->
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.8" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.6" />
+  </ItemGroup>
+</Project>

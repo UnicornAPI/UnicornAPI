@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <!-- UnicornPlugin=true в csproj плагина: не подключать Assembly-CSharp/Mirror (чтобы не было конфликтов имён вроде Team). Нужен прямой доступ к игре — поставь false. -->
+    <!-- Путь к папке игры с установленным BepInEx (после первого запуска появится BepInEx/interop).
+         Можно переопределить: dotnet build -p:GameDir="D:\Steam\steamapps\common\SCP Project 90" -->
+    <GameDir Condition="'$(GameDir)' == ''">$(MSBuildThisFileDirectory)libs</GameDir>
+    <BepInExCore>$(GameDir)\BepInEx\core</BepInExCore>
+    <Interop>$(GameDir)\BepInEx\interop</Interop>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;CS8632</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(BepInExCore)\BepInEx.Core.dll" Private="false" />
+    <Reference Include="$(BepInExCore)\BepInEx.Unity.IL2CPP.dll" Private="false" />
+    <Reference Include="$(BepInExCore)\0Harmony.dll" Private="false" />
+    <Reference Include="$(BepInExCore)\Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="$(BepInExCore)\Il2CppInterop.Common.dll" Private="false" />
+    <Reference Include="$(Interop)\Assembly-CSharp.dll" Private="false" Condition="'$(UnicornPlugin)' != 'true'" />
+    <Reference Include="$(Interop)\Mirror.dll" Private="false" Condition="'$(UnicornPlugin)' != 'true'" />
+    <Reference Include="$(Interop)\Mirror.Components.dll" Private="false" Condition="'$(UnicornPlugin)' != 'true'" />
+    <Reference Include="$(Interop)\Il2Cppmscorlib.dll" Private="false" />
+    <Reference Include="$(Interop)\Il2CppSystem.dll" Private="false" />
+    <Reference Include="$(Interop)\UnityEngine.dll" Private="false" />
+    <Reference Include="$(Interop)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(Interop)\UnityEngine.PhysicsModule.dll" Private="false" />
+    <Reference Include="$(Interop)\UnityEngine.AnimationModule.dll" Private="false" />
+    <Reference Include="$(Interop)\com.lachee.discordrpc.runtime.dll" Private="false" Condition="'$(UnicornPlugin)' != 'true'" />
+    <Reference Include="$(Interop)\com.rlabrecque.steamworks.net.dll" Private="false" Condition="'$(UnicornPlugin)' != 'true'" />
+  </ItemGroup>
+</Project>

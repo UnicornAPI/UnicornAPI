@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>HelloUnicorn</AssemblyName>
+    <UnicornPlugin>true</UnicornPlugin>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\UnicornAPI\UnicornAPI.csproj" Private="false" />
+  </ItemGroup>
+</Project>
