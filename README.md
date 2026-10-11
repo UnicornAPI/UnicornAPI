@@ -59,9 +59,9 @@
 
 1. Установить **BepInEx 6 IL2CPP be.788** в папку игры (рядом с `SCP Project 90.exe`):
    https://builds.bepinex.dev/projects/bepinex_be/788/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788%2B5b766a3.zip
-2. Распаковать архив UnicornAPI в ту же папку.
+2. Распаковать архив UnicornAPI в ту же папку. В нём сразу лежат библиотеки SQLite (`Microsoft.Data.Sqlite.dll`, `SQLitePCLRaw.*.dll`, `e_sqlite3.dll`), они нужны самому UnicornAPI. Ставить отдельно SQL-сервер или что-то ещё не нужно: база это один файл `UnicornAPI/unicorn.db`, он создаётся сам при первом запуске.
 3. Настроить игру: `%USERPROFILE%\AppData\LocalLow\ydanovvv\Scp project 90\Config\YourServerConfig.json` - название, описание, лимит игроков, `FriendsOnlyServer: "false"`.
-4. Запустить Steam под **отдельным серверным аккаунтом** с игрой и запустить сервер (`SCP Project 90.exe -batchmode -nographics` или прилагаемый `.bat`).
+4. Запустить Steam под **отдельным серверным аккаунтом** с игрой и запустить сервер (`SCP Project 90.exe -batchmode -nographics`).
 5. **Первый запуск долгий (1-3 минуты):** BepInEx генерирует `BepInEx/interop`. Дальше быстро.
 6. В консоли: `sun` - версия и список плагинов.
 
